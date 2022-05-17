@@ -6,15 +6,10 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/**
- * @description:
- * @author: SorDomS
- * @time: 2022/5/17 8:52
- */
 public class Main {
 
     /**
-     * @Description:  ´«ÈëÎÄ¼şÈ«Â·¾¶Ãû³Æ,ÊµÏÖÖ¡½ØÍ¼²Ù×÷.
+     * @Description:  ä¼ å…¥æ–‡ä»¶å…¨è·¯å¾„åç§°,å®ç°å¸§æˆªå›¾æ“ä½œ
      * @Param: [FileURL]
      * @return: boolean
      * @Author: SurDowney
@@ -25,20 +20,20 @@ public class Main {
         fFmpegFrameGrabber.start();
         Frame frame = null;
         /**
-         *  »ñÈ¡ÊÓÆµ×ÜÖ¡Êı
+         *  è·å–è§†é¢‘æ€»å¸§æ•°
          */
         int frames = fFmpegFrameGrabber.getLengthInFrames();
         int i = 0;
         while (i<frames){
             frame = fFmpegFrameGrabber.grabImage();
             /**
-             *  ¿ÉÌí¼ÓÌõ¼ş,»ñÈ¡Ö¸¶¨Ö¡Êı»òÕßÖ¸¶¨Ä³Ò»Ö¡
+             *  å¯æ·»åŠ æ¡ä»¶,è·å–æŒ‡å®šå¸§æ•°æˆ–è€…æŒ‡å®šæŸä¸€å¸§
              */
             if (frame != null) {
-                String fileName = "D:\\Video\\"+System.currentTimeMillis()+".jpg";
+                String fileName = "\\Path\\"+System.currentTimeMillis()+"formatName";
                 File file = new File(fileName);
                 /**
-                 *  Í¼Æ¬Êä³ö
+                 *  å›¾ç‰‡è¾“å‡º
                  */
                 Java2DFrameConverter converter = new Java2DFrameConverter();
                 BufferedImage image = converter.getBufferedImage(frame);
@@ -55,8 +50,4 @@ public class Main {
         return false;
     }
 
-    public static void main(String[] args) throws Exception {
-        String url = "D:\\Video\\Demo.mp4";
-        System.out.println(VideoCutPic(url));
-    }
 }
