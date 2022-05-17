@@ -36,7 +36,7 @@ used java implements cut picture for frame of video.
              *  可添加条件,获取指定帧数或者指定某一帧
              */
             if (frame != null) {
-                String fileName = "\\path\\"+System.currentTimeMillis()+"formatterName";
+                String fileName = "\\path\\"+System.currentTimeMillis()+"formatName";
                 File file = new File(fileName);
                 /**
                  *  图片输出
